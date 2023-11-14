@@ -83,7 +83,7 @@ public class NbaWebScraper {
 		TeamStats[] teams = Scrape();
 
 		// Define the file path where you want to save the results
-		String filePath = "C:\\Users\\james\\Documents\\SemesterProject\\NbaWebScraping\\src\\output.txt"; // Update
+		String filePath = "./src/output.txt"; // Update
 																											// with your
 																											// desired
 																											// file path
