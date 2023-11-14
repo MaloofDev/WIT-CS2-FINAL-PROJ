@@ -7,5 +7,10 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/james/Downloads/jsoup-1.16.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shado/OneDrive/Documents/GitHub/comp1050-f23-projects-group-7/SportsDataScraper2/src/jsoup-1.16.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
