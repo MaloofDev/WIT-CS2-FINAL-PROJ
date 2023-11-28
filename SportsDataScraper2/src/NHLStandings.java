@@ -1,5 +1,3 @@
-package expected_win_percentage;
-
 public class NHLStandings {
 private float W, L, PCT, GF, GA, xPCT;
 	

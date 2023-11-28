@@ -1,5 +1,3 @@
-package expected_win_percentage;
-
 public class NFLStandings {
 private float W, L, PCT, PF, PA, xPCT;
 	

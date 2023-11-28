@@ -1,6 +1,4 @@
-package expected_win_percentage;
-
-public class NBAStandings {
+class NBAStandings {
 private float W, L, PCT, PF, PA, xPCT;
 	
 	private String team;
