@@ -1,5 +1,3 @@
-package expected_win_percentage;
-
 public class MLBStandings {
 	
 	private float W, L, PCT, RS, RA, xPCT;
