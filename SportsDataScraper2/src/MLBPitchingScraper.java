@@ -11,6 +11,14 @@ public class MLBPitchingScraper {
 	public static MLBPitchingStats[] Scrape() {
 		final String url = "https://www.espn.com/mlb/stats/team/_/view/pitching";
 		MLBPitchingStats[] rosterstats = new MLBPitchingStats[30];
+		TestGrab teams = new TestGrab();
+		String[] name = new String[30];
+		try {
+			name = teams.TeamGrab(url, 30);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		try {
 			final Document doc = Jsoup.connect(url).get();
@@ -18,14 +26,13 @@ public class MLBPitchingScraper {
 
 			for (Element row : doc.select("tbody.Table__TBODY tr")) {
 
-				String name = extractTeamName(row); // Extract team name
 
 				if (row.select("td:nth-of-type(3)").text().equals("")) {
 					continue; // Skip rows with empty data
 				} else {
 					float[] stats = extractStats(row); // Extract team stats
 
-					rosterstats[k] = new MLBPitchingStats(name, stats);
+					rosterstats[k] = new MLBPitchingStats(name[k], stats);
 					k++;
 				}
 			}
@@ -36,14 +43,6 @@ public class MLBPitchingScraper {
 		return rosterstats;
 	}
 
-	private static String extractTeamName(Element row) {
-		String anchorElement = row.select(".AnchorLink").text();
-		if (anchorElement != null) {
-			return anchorElement;
-		} else {
-			return anchorElement;
-		}
-	}
 	private static float[] extractStats(Element row) {
 		float[] stats = new float[16];
 		for (int i = 1; i <= 16; i++) {
@@ -70,12 +69,12 @@ public class MLBPitchingScraper {
 			if (teams[0] != null) {
 				// Print the table header
 				writer.printf(
-						"%-20s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
+						"%-22s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
 						"Team", "GP", "W", "L", "ERA", "SV", "CG", "SHO", "QS", "IP", "H", "ER", "HR", "BB",
 						"SO", "OBA", "WHIP");
 				for (MLBPitchingStats team : teams) {
 					writer.printf(
-							"%-20s %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f%n",
+							"%-22s %-8.0f %-8.0f %-8.0f %-8.2f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.3f %-8.2f%n",
 							team.getName(), team.getGP(), team.getW(), team.getL(), team.getERA(), team.getSV(),
 							team.getCG(), team.getSHO(), team.getQS(), team.getIP(), team.getH(), team.getER(),
 							team.getHR(), team.getBB(), team.getSO(), team.getOBA(), team.getWHIP());

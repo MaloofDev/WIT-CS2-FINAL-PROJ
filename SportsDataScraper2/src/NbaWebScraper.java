@@ -19,21 +19,29 @@ public class NbaWebScraper {
 	public static TeamStats[] Scrape() {
 		final String url = "https://www.espn.com/nba/stats/team";
 		TeamStats[] rosterstats = new TeamStats[30];
+		TestGrab teams = new TestGrab();
+		String[] name = new String[30];
+		try {
+			name = teams.TeamGrab(url, 30);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 		try {
 			final Document doc = Jsoup.connect(url).get();
 			int k = 0;
 
 			for (Element row : doc.select("tbody.Table__TBODY tr")) {
-
-				String name = extractTeamName(row); // Extract team name
+ // Extract team name
 
 				if (row.select("td:nth-of-type(3)").text().equals("")) {
 					continue; // Skip rows with empty data
 				} else {
 					double[] stats = extractStats(row); // Extract team stats
 
-					rosterstats[k] = new TeamStats(name, stats);
+					rosterstats[k] = new TeamStats(name[k], stats);
 					k++;
 				}
 			}
@@ -50,14 +58,7 @@ public class NbaWebScraper {
 	 * @param row The HTML Element representing the table row.
 	 * @return The team name.
 	 */
-	private static String extractTeamName(Element row) {
-		Element anchorElement = row.select("td > div > div > a").last();
-		if (anchorElement != null) {
-			return anchorElement.text();
-		} else {
-			return anchorElement.text();
-		}
-	}
+
 
 	/**
 	 * Extract team statistics from the row's HTML code.
@@ -94,12 +95,12 @@ public class NbaWebScraper {
 			if (teams[0] != null) {
 				// Print the table header
 				writer.printf(
-						"%-20s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
+						"%-24s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
 						"Team", "GP", "PTS", "FGM", "FGA", "FG%", "3PM", "3PA", "3P%", "FTM", "FTA", "FT%", "OR", "DR",
 						"REB", "AST", "STL", "BLK", "TO", "PF");
 				for (TeamStats team : teams) {
 					writer.printf(
-							"%-20s %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f %-8.2f%n",
+							"%-24s %-8.0f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f%n",
 							team.getName(), team.getGP(), team.getPTS(), team.getFGM(), team.getFGA(), team.getFGP(),
 							team.getTPM(), team.getTPA(), team.getTPP(), team.getFTM(), team.getFTA(), team.getFTP(),
 							team.getOR(), team.getDR(), team.getREB(), team.getAST(), team.getSTL(), team.getBLK(),

@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,7 +23,14 @@ public class NHLScraper {
 
 		}*/
 		NHLStats[] rosterstats = new NHLStats[32];
-		
+		TestGrab teams = new TestGrab();
+		String[] name = new String[32];
+		try {
+			name = teams.TeamGrab(url, 32);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try 
 		{
 			
@@ -28,14 +40,12 @@ public class NHLScraper {
 
 			for (Element row : doc.select("tbody.Table__TBODY tr")) {
 
-				String name = "NA"; // Extract team name
-
 				if (row.select("td:nth-of-type(3)").text().equals("")) {
 					continue; // Skip rows with empty data
 				} else {
 					float[] stats = extractStats(i,row); // Extract team stats
 
-					rosterstats[k] = new NHLStats(i,name, stats);
+					rosterstats[k] = new NHLStats(i,name[k], stats);
 					k++;
 				}
 			
@@ -58,7 +68,7 @@ public class NHLScraper {
 				String data = row.select(nthtype).text();
 				data = data.replaceAll(",", "");
 				data = data.replaceAll(" ", "");
-				stats[i - 1] = (float) Double.parseDouble(data);
+				stats[i - 1] = Float.parseFloat(data);
 			}
 			}
 			else {
@@ -68,7 +78,7 @@ public class NHLScraper {
 					String data = row.select(nthtype).text();
 					data = data.replaceAll(",", "");
 					data = data.replaceAll(" ", "");
-					stats[i - 1] = (float) Double.parseDouble(data);
+					stats[i - 1] = Float.parseFloat(data);
 				}
 			}
 			return stats;
@@ -76,12 +86,60 @@ public class NHLScraper {
 		
 		public static void main(String[] args) 
 		{
-			NHLStats[] teams = scrape(2);
-			System.out.println(teams[1].getSOSP());
-			
-			//System.out.println(teams[1].getGP());
-			//System.out.println(teams[9].getOPS());
-			
+			NHLStats[] teams1 = scrape(1);
+			NHLStats[] teams2 = scrape(2);
+			// Define the file path where you want to save the results
+			String filePath = "./src/NHLOutput.txt"; // Update
+																												// with your
+																												// desired
+																												// file path
 
+			try {
+				PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
+
+				if (teams1[0] != null) {
+					// Print the table header
+					writer.printf(
+							"%-24s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
+							"Team", "GP", "GFPG", "A", "PTS", "PPG", "PP%", "SHG", "S", "S%", "PIM", "PK%", "SOA", "SOG", "SO%");
+					for (NHLStats team : teams1) {
+						writer.printf(
+								"%-24s %-8.0f %-8.1f %-8.0f %-8.0f %-8.0f %-8.1f %-8.0f %-8.0f %-8.1f %-8.0f %-8.1f %-8.0f %-8.0f %-8.1f%n",
+								team.getName(), team.getGP(), team.getGFPG(), team.getA(), team.getPTS(), team.getPPG(),
+								team.getPPP(), team.getSHG(), team.getS(), team.getSP(), team.getPIM(), team.getPKP(), team.getSOA(), team.getSOG(), team.getSOP());
+					}
+				}
+
+				writer.close();
+				System.out.println("Results have been written to the file: " + filePath);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		// Define the file path where you want to save the results
+			String filePath2 = "./src/NHLGoalieOutput.txt"; // Update
+			// with your
+			// desired
+			// file path
+
+			try {
+				PrintWriter writer2 = new PrintWriter(new BufferedWriter(new FileWriter(filePath2)));
+
+				if (teams2[0] != null) {
+					// Print the table header
+					writer2.printf(
+							"%-24s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
+							"Team", "GP", "GAPG","W","L","OTL","SA","GA","SV%","SO","SOSA","SOS","SOS%");
+					for (NHLStats team : teams2) {
+						writer2.printf(
+								"%-24s %-8.0f %-8.2f %-8.0f %-8.0f %-8.0f %-8.0f %-8.0f %-8.3f %-8.0f %-8.0f %-8.0f %-8.3f%n",
+								team.getName(), team.getGP(), team.getGAPG(), team.getW(), team.getL(), team.getOTL(),
+								team.getSA(), team.getGA(), team.getSVP(), team.getSO(), team.getSOSA(), team.getSOS(), team.getSOSP());
+					}
+				}
+
+				writer2.close();
+				System.out.println("Results have been written to the file: " + filePath2);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 }

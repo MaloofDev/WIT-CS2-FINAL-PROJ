@@ -22,6 +22,7 @@ public class NHLStats {
 			SOG = stats[12];
 			SOP = stats[13];
 		} else {
+			this.name = name;
 			GP = stats[0];
 			GAPG = stats[1];
 			W = stats[2];
@@ -55,6 +56,9 @@ public class NHLStats {
 
 	public float getPTS() {
 		return PTS;
+	}
+	public float getPPG() {
+		return PPG;
 	}
 
 	public float getPPP() {
@@ -120,5 +124,8 @@ public class NHLStats {
 	}
 	public float getSOSP() {
 		return SOSP;
+	}
+	public String getName() {
+		return name;
 	}
 }
