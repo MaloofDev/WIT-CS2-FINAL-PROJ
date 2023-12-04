@@ -23,19 +23,34 @@ public class TestGrab
 	}*/
 	//System.out.println(doc.select("img.Image.Logo.Logo__sm"));
 		
+		TeamGrab("https://www.espn.com/mlb/standings/_/group/overall", 30, false);
+		
 	}
-	public String[] TeamGrab(String url, int teamSize) throws IOException {
+	public static String[] TeamGrab(String url, int teamSize,boolean type) throws IOException {
+		String[] teams = new String[teamSize];
 		final Document doc = Jsoup.connect(url).get();
 		String html = doc.html();
-		String[] names = new String[teamSize]; 
+		
 		//System.out.println(html);
-		html = html.substring(html.indexOf("teamStats"), html.indexOf("dictionary"));
+		if(type ==false) {
+			//System.out.println(html.indexOf("leaguestanding"));
+			html = html.substring(html.indexOf("leaguestanding"));
+			//System.out.println(html);
+
+		}
+		else {
+			html = html.substring(html.indexOf("teamStats"), html.indexOf("dictionary"));
+		}
+		
+		
+		
 		for(int i=0;i<teamSize;i++) {
 			html=html.substring(html.indexOf("displayName\":"));
-			names[i] = html.substring(html.indexOf("\"")+3,html.indexOf("\","));
+			teams[i] = html.substring(html.indexOf("\"")+3,html.indexOf("\","));
 			html=html.substring(html.indexOf("short"));
 		}
-		return names;
+		return teams;
 	}
+
 
 }
