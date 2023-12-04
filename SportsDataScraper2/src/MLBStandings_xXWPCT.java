@@ -8,14 +8,7 @@ import java.io.PrintWriter;
 
 public class MLBStandings_xXWPCT {
 	
-	private static String extractTeamName(Element row) {
-		Element anchorElement = row.select("td > div > div > a").last();
-		if (anchorElement != null) {
-			return anchorElement.text();
-		} else {
-			return null;
-		}
-	}
+
 	
 	private static float[] extractStats(Element row) {
 		float[] standings = new float[6];
@@ -37,6 +30,14 @@ public class MLBStandings_xXWPCT {
 	public static MLBStandings[] Scrape() {
 		final String url = "https://www.espn.com/mlb/standings/_/group/overall";
 		MLBStandings[] standings = new MLBStandings[30];
+		TestGrab teams = new TestGrab();
+		String[] name = new String[30];
+		try {
+			name = teams.TeamGrab(url, 30, false);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		try {
 			final Document doc = Jsoup.connect(url).get();
@@ -44,14 +45,14 @@ public class MLBStandings_xXWPCT {
 
 			for (Element row : doc.select("tbody.Table__TBODY tr")) {
 
-				String name = extractTeamName(row); // Extract team name
+
 
 				if (row.select("td:nth-of-type(3)").text().equals("")) {
 					continue; // Skip rows with empty data
 				} else {
 					float[] stats = extractStats(row); // Extract team stats
 
-					standings[k] = new MLBStandings(name, stats);
+					standings[k] = new MLBStandings(name[k], stats);
 					k++;
 				}
 			}
@@ -74,11 +75,11 @@ public class MLBStandings_xXWPCT {
 
 			if (teams[0] != null) {
 				writer.printf(
-						"%-20s %-8s %-8s %-8s %-8s %-8s %-8s%n",
+						"%-22s %-8s %-8s %-8s %-8s %-8s %-8s%n",
 						"Team", "W", "L", "RS", "RA", "PCT", "xPCT");
 				for (MLBStandings team : teams) {
 					writer.printf(
-							"%-20s %-8.0f %-8.0f %-8.0f %-8.0f %-8.3f %-8.3f%n",
+							"%-22s %-8.0f %-8.0f %-8.0f %-8.0f %-8.3f %-8.3f%n",
 							team.getTeam(), team.getW(), team.getL(), team.getPCT(), team.getRS(), team.getRA(), team.getxPCT());
 				}
 			}

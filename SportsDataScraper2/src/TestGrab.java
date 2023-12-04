@@ -23,7 +23,7 @@ public class TestGrab
 	}*/
 	//System.out.println(doc.select("img.Image.Logo.Logo__sm"));
 		
-		TeamGrab("https://www.espn.com/mlb/standings/_/group/league", 30, false);
+		TeamGrab("https://www.espn.com/mlb/standings/_/group/overall", 30, false);
 		
 	}
 	public static String[] TeamGrab(String url, int teamSize,boolean type) throws IOException {
@@ -33,9 +33,7 @@ public class TestGrab
 		
 		//System.out.println(html);
 		if(type ==false) {
-			//System.out.println(html.length());
-			//System.out.println(html.indexOf("standingSummary"));
-			//System.out.println(html);
+			//System.out.println(html.indexOf("leaguestanding"));
 			html = html.substring(html.indexOf("groups"));
 			//System.out.println(html);
 
@@ -49,8 +47,7 @@ public class TestGrab
 		for(int i=0;i<teamSize;i++) {
 			html=html.substring(html.indexOf("displayName\":"));
 			teams[i] = html.substring(html.indexOf("\"")+3,html.indexOf("\","));
-			//System.out.println(html.substring(html.indexOf("\"")+3,html.indexOf("\",")));
-			html=html.substring(html.indexOf("team"));
+			html=html.substring(html.indexOf("short"));
 		}
 		return teams;
 	}

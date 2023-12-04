@@ -26,7 +26,7 @@ public class NHLScraper {
 		TestGrab teams = new TestGrab();
 		String[] name = new String[32];
 		try {
-			name = teams.TeamGrab(url, 32);
+			name = teams.TeamGrab(url, 32, true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

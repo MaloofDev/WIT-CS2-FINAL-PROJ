@@ -16,7 +16,7 @@ public class MLBScraper
 		TestGrab teams = new TestGrab();
 		String[] name = new String[30];
 		try {
-			name = teams.TeamGrab(url, 30);
+			name = teams.TeamGrab(url, 30, true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
