@@ -34,12 +34,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -47,122 +41,259 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Home" />
-            <Button layoutX="560.0" layoutY="14.0" mnemonicParsing="false" text="Refresh" />
-            <Button layoutX="492.0" layoutY="14.0" mnemonicParsing="false" text="Print" />
-            <TabPane layoutY="46.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="Main" prefHeight="361.0" prefWidth="551.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Skating">
+                <Tab text="NHL">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
                            <children>
-                              <TableView layoutY="15.0" prefHeight="279.0" prefWidth="633.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Names" />
-                                  <TableColumn prefWidth="75.0" text="GP" />
-                                    <TableColumn prefWidth="75.0" text="GF/G" />
-                                    <TableColumn prefWidth="75.0" text="A" />
-                                    <TableColumn prefWidth="75.0" text="PTS" />
-                                    <TableColumn prefWidth="75.0" text="PPG" />
-                                    <TableColumn prefWidth="75.0" text="PP%" />
-                                    <TableColumn prefWidth="75.0" text="SHG" />
-                                    <TableColumn prefWidth="75.0" text="S" />
-                                    <TableColumn prefWidth="75.0" text="S%" />
-                                    <TableColumn prefWidth="75.0" text="PIM" />
-                                    <TableColumn prefWidth="75.0" text="PK%" />
-                                    <TableColumn prefWidth="75.0" text="SOA" />
-                                    <TableColumn prefWidth="75.0" text="SOG" />
-                                    <TableColumn prefWidth="75.0" text="SO%" />
-                                    <TableColumn prefWidth="75.0" text="W%" />
-                                </columns>
-                              </TableView>
-                              <ScrollBar />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
+                              <Button fx:id="RefreshNHL" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
+                              <Button fx:id="PrintNHL" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
+                              <ChoiceBox fx:id="PrePostNHL" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <ChoiceBox fx:id="YearNHL" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab fx:id="SkatingTab" text="Skating">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="SkateTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="75.0" text="Names" />
+                                                    <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="GF/G" />
+                                                      <TableColumn prefWidth="75.0" text="A" />
+                                                      <TableColumn prefWidth="75.0" text="PTS" />
+                                                      <TableColumn prefWidth="75.0" text="PPG" />
+                                                      <TableColumn prefWidth="75.0" text="PP%" />
+                                                      <TableColumn prefWidth="75.0" text="SHG" />
+                                                      <TableColumn prefWidth="75.0" text="S" />
+                                                      <TableColumn prefWidth="75.0" text="S%" />
+                                                      <TableColumn prefWidth="75.0" text="PIM" />
+                                                      <TableColumn prefWidth="75.0" text="PK%" />
+                                                      <TableColumn prefWidth="75.0" text="SOA" />
+                                                      <TableColumn prefWidth="75.0" text="SOG" />
+                                                      <TableColumn prefWidth="75.0" text="SO%" />
+                                                      <TableColumn prefWidth="75.0" text="W%" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="GoaltendingTab" text="Goaltending">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="GoalTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="GA/G" />
+                                                      <TableColumn prefWidth="75.0" text="W" />
+                                                      <TableColumn prefWidth="75.0" text="L" />
+                                                      <TableColumn prefWidth="75.0" text="OTL" />
+                                                      <TableColumn prefWidth="75.0" text="SA" />
+                                                      <TableColumn prefWidth="75.0" text="GA" />
+                                                      <TableColumn prefWidth="75.0" text="S" />
+                                                      <TableColumn prefWidth="75.0" text="SV%" />
+                                                      <TableColumn prefWidth="75.0" text="SO" />
+                                                      <TableColumn prefWidth="75.0" text="SOSA" />
+                                                      <TableColumn prefWidth="75.0" text="SOS" />
+                                                      <TableColumn prefWidth="75.0" text="SOS%" />
+                                                      <TableColumn prefWidth="75.0" text="W%" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
-                <Tab text="Goaltending">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <Tab text="MLB">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
                            <children>
-                              <TableView layoutY="15.0" prefHeight="279.0" prefWidth="633.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Names" />
-                                    <TableColumn prefWidth="75.0" text="GP" />
-                                    <TableColumn prefWidth="75.0" text="GA/G" />
-                                    <TableColumn prefWidth="75.0" text="W" />
-                                    <TableColumn prefWidth="75.0" text="L" />
-                                    <TableColumn prefWidth="75.0" text="OTL" />
-                                    <TableColumn prefWidth="75.0" text="SA" />
-                                    <TableColumn prefWidth="75.0" text="GA" />
-                                    <TableColumn prefWidth="75.0" text="S" />
-                                    <TableColumn prefWidth="75.0" text="SV%" />
-                                    <TableColumn prefWidth="75.0" text="SO" />
-                                    <TableColumn prefWidth="75.0" text="SOSA" />
-                                    <TableColumn prefWidth="75.0" text="SOS" />
-                                    <TableColumn prefWidth="75.0" text="SOS%" />
-                                    <TableColumn prefWidth="75.0" text="W%" />
-                                 </columns>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
+                              <Button fx:id="RefreshMLB" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
+                              <Button fx:id="PrintMLB" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
+                              <ChoiceBox fx:id="PrePostMLB" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <ChoiceBox fx:id="YearMLB" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="FIeld" text="Field">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="FieldTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="AB" />
+                                                      <TableColumn prefWidth="75.0" text="R" />
+                                                      <TableColumn prefWidth="75.0" text="H" />
+                                                      <TableColumn prefWidth="75.0" text="TwoB" />
+                                                      <TableColumn prefWidth="75.0" text="ThreeB" />
+                                                      <TableColumn prefWidth="75.0" text="HR" />
+                                                      <TableColumn prefWidth="75.0" text="RBI" />
+                                                      <TableColumn prefWidth="75.0" text="TB" />
+                                                      <TableColumn prefWidth="75.0" text="BB" />
+                                                      <TableColumn prefWidth="75.0" text="SO" />
+                                                      <TableColumn prefWidth="75.0" text="SB" />
+                                                      <TableColumn prefWidth="75.0" text="AVG" />
+                                                      <TableColumn prefWidth="75.0" text="OBP" />
+                                                      <TableColumn prefWidth="75.0" text="SLG" />
+                                                      <TableColumn prefWidth="75.0" text="OPS" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="Pitching" text="Pitching">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="PitchingTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="W" />
+                                                      <TableColumn prefWidth="75.0" text="L" />
+                                                      <TableColumn prefWidth="75.0" text="ERA" />
+                                                      <TableColumn prefWidth="75.0" text="SV" />
+                                                      <TableColumn prefWidth="75.0" text="CG" />
+                                                      <TableColumn prefWidth="75.0" text="SHO" />
+                                                      <TableColumn prefWidth="75.0" text="QS" />
+                                                      <TableColumn prefWidth="75.0" text="IP" />
+                                                      <TableColumn prefWidth="75.0" text="H" />
+                                                      <TableColumn prefWidth="75.0" text="ER" />
+                                                      <TableColumn prefWidth="75.0" text="HR" />
+                                                      <TableColumn prefWidth="75.0" text="BB" />
+                                                      <TableColumn prefWidth="75.0" text="SO" />
+                                                      <TableColumn prefWidth="75.0" text="OBA" />
+                                                      <TableColumn prefWidth="75.0" text="WHIP" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="NBA" text="NBA">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
+                              <Button fx:id="RefreshNBA" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
+                              <Button fx:id="PrintNBA" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
+                              <ChoiceBox fx:id="PrePostNBA" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <ChoiceBox fx:id="YearNBA" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <TableView fx:id="NBATable" layoutY="50.0" prefHeight="286.0" prefWidth="551.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Team" />
+                                  <TableColumn prefWidth="75.0" text="GP" />
+                                    <TableColumn prefWidth="75.0" text="PTS" />
+                                    <TableColumn prefWidth="75.0" text="FGM" />
+                                    <TableColumn prefWidth="75.0" text="FGP" />
+                                    <TableColumn prefWidth="75.0" text="TPM" />
+                                    <TableColumn prefWidth="75.0" text="TPA" />
+                                    <TableColumn prefWidth="75.0" text="TPP" />
+                                    <TableColumn prefWidth="75.0" text="FTM" />
+                                    <TableColumn prefWidth="75.0" text="FTA" />
+                                    <TableColumn prefWidth="75.0" text="FTP" />
+                                    <TableColumn prefWidth="75.0" text="OR" />
+                                    <TableColumn prefWidth="75.0" text="DR" />
+                                    <TableColumn prefWidth="75.0" text="REB" />
+                                    <TableColumn prefWidth="75.0" text="AST" />
+                                    <TableColumn prefWidth="75.0" text="STL" />
+                                    <TableColumn prefWidth="75.0" text="BLK" />
+                                    <TableColumn prefWidth="75.0" text="TO" />
+                                    <TableColumn prefWidth="75.0" text="PF" />
+                                </columns>
                               </TableView>
-                              <ScrollBar prefHeight="15.0" prefWidth="633.0" />
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="NFL">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
+                              <Button fx:id="RefreshNFL" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
+                              <Button fx:id="PrintNFL" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
+                              <ChoiceBox fx:id="PrePostNFL" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <ChoiceBox fx:id="YearNFL" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
+                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="OffenseTab" text="Offense">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="OffenseTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="TYDS" />
+                                                      <TableColumn prefWidth="75.0" text="TYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="PYDS" />
+                                                      <TableColumn prefWidth="75.0" text="PYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="RYDS" />
+                                                      <TableColumn prefWidth="75.0" text="RYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="PTS" />
+                                                      <TableColumn prefWidth="75.0" text="PTSPG" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="DefenseTab" text="Deffense">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="DefenseTable" prefHeight="279.0" prefWidth="633.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
+                                                      <TableColumn prefWidth="75.0" text="TYDS" />
+                                                      <TableColumn prefWidth="75.0" text="TYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="PYDS" />
+                                                      <TableColumn prefWidth="75.0" text="PYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="RYDS" />
+                                                      <TableColumn prefWidth="75.0" text="RYDSPG" />
+                                                      <TableColumn prefWidth="75.0" text="PTS" />
+                                                      <TableColumn prefWidth="75.0" text="PTSPG" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
               </tabs>
             </TabPane>
-            <ChoiceBox layoutX="266.0" layoutY="14.0" prefHeight="25.0" prefWidth="56.0" />
-            <ChoiceBox layoutX="340.0" layoutY="14.0" prefHeight="25.0" prefWidth="56.0" />
       </children>
     </AnchorPane>
   </children>
