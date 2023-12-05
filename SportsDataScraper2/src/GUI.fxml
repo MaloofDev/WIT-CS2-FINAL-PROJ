@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Tab?>
@@ -39,34 +40,30 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <TabPane fx:id="Main" prefHeight="361.0" prefWidth="551.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="NHL">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-                              <Button fx:id="RefreshNHL" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
-                              <Button fx:id="PrintNHL" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
-                              <ChoiceBox fx:id="PrePostNHL" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <ChoiceBox fx:id="YearNHL" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
-                                <tabs>
-                                  <Tab fx:id="SkatingTab" text="Skating">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane fx:id="Main" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="682.0" prefWidth="589.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="NHL">
+               <content>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="413.0" prefWidth="618.0">
+                     <children>
+                        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                                 <tabs>
+                                    <Tab fx:id="SkatingTab" text="Skating">
+                                       <content>
+                                          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="SkateTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
-                                                  <columns>
-                                                    <TableColumn prefWidth="75.0" text="Names" />
-                                                    <TableColumn prefWidth="75.0" text="GP" />
+                                                <TableView fx:id="SkateTable" layoutX="5.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="279.0" prefWidth="633.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Names" />
+                                                      <TableColumn prefWidth="75.0" text="GP" />
                                                       <TableColumn prefWidth="75.0" text="GF/G" />
                                                       <TableColumn prefWidth="75.0" text="A" />
                                                       <TableColumn prefWidth="75.0" text="PTS" />
@@ -81,17 +78,21 @@
                                                       <TableColumn prefWidth="75.0" text="SOG" />
                                                       <TableColumn prefWidth="75.0" text="SO%" />
                                                       <TableColumn prefWidth="75.0" text="W%" />
-                                                  </columns>
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
-                                    </content>
-                                  </Tab>
-                                  <Tab fx:id="GoaltendingTab" text="Goaltending">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="GoaltendingTab" text="Goaltending">
+                                       <content>
+                                          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="900.0">
                                              <children>
-                                                <TableView fx:id="GoalTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0">
+                                                <TableView fx:id="GoalTable" focusTraversable="false" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="471.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
                                                       <TableColumn prefWidth="75.0" text="Names" />
                                                       <TableColumn prefWidth="75.0" text="GP" />
@@ -108,34 +109,57 @@
                                                       <TableColumn prefWidth="75.0" text="SOS" />
                                                       <TableColumn prefWidth="75.0" text="SOS%" />
                                                       <TableColumn prefWidth="75.0" text="W%" />
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
-                                    </content>
-                                  </Tab>
-                                </tabs>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
                               </TabPane>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab text="MLB">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-                              <Button fx:id="RefreshMLB" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
-                              <Button fx:id="PrintMLB" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
-                              <ChoiceBox fx:id="PrePostMLB" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <ChoiceBox fx:id="YearMLB" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+                           </center>
+                           <top>
+                              <HBox maxWidth="1.7976931348623157E308" prefHeight="20.0">
+                                 <children>
+                                    <Button fx:id="RefreshNHL" mnemonicParsing="false" prefWidth="1500.0" text="Refresh" />
+                                    <Button fx:id="PrintNHL" mnemonicParsing="false" prefWidth="1500.0" text="Print" />
+                                    <ChoiceBox fx:id="PrePostNHL" prefWidth="1500.0" />
+                                    <ChoiceBox fx:id="YearNHL" prefWidth="1500.0" />
+                                 </children>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="MLB">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
+                     <children>
+                        <BorderPane prefHeight="567.0" prefWidth="893.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <HBox prefHeight="21.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="RefreshMLB" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
+                                    <Button fx:id="PrintMLB" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Print" />
+                                    <ChoiceBox fx:id="PrePostMLB" prefHeight="25.0" prefWidth="15000.0" />
+                                    <ChoiceBox fx:id="YearMLB" prefHeight="25.0" prefWidth="15000.0" />
+                                 </children>
+                              </HBox>
+                           </top>
+                           <center>
+                              <TabPane prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                                  <tabs>
                                     <Tab fx:id="FIeld" text="Field">
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="FieldTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
+                                                <TableView fx:id="FieldTable" layoutX="-1.0" prefHeight="315.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
                                                       <TableColumn prefWidth="75.0" text="Names" />
                                                       <TableColumn prefWidth="75.0" text="GP" />
@@ -154,7 +178,11 @@
                                                       <TableColumn prefWidth="75.0" text="OBP" />
                                                       <TableColumn prefWidth="75.0" text="SLG" />
                                                       <TableColumn prefWidth="75.0" text="OPS" />
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
@@ -164,7 +192,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="PitchingTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0">
+                                                <TableView fx:id="PitchingTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
                                                       <TableColumn prefWidth="75.0" text="Names" />
                                                       <TableColumn prefWidth="75.0" text="GP" />
@@ -183,7 +211,11 @@
                                                       <TableColumn prefWidth="75.0" text="SO" />
                                                       <TableColumn prefWidth="75.0" text="OBA" />
                                                       <TableColumn prefWidth="75.0" text="WHIP" />
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
@@ -191,23 +223,22 @@
                                     </Tab>
                                  </tabs>
                               </TabPane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab fx:id="NBA" text="NBA">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-                              <Button fx:id="RefreshNBA" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
-                              <Button fx:id="PrintNBA" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
-                              <ChoiceBox fx:id="PrePostNBA" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <ChoiceBox fx:id="YearNBA" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <TableView fx:id="NBATable" layoutY="50.0" prefHeight="286.0" prefWidth="551.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Team" />
-                                  <TableColumn prefWidth="75.0" text="GP" />
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="NBA" text="NBA">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TableView fx:id="NBATable" prefHeight="286.0" prefWidth="551.0" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Team" />
+                                    <TableColumn prefWidth="75.0" text="GP" />
                                     <TableColumn prefWidth="75.0" text="PTS" />
                                     <TableColumn prefWidth="75.0" text="FGM" />
                                     <TableColumn prefWidth="75.0" text="FGP" />
@@ -225,28 +256,45 @@
                                     <TableColumn prefWidth="75.0" text="BLK" />
                                     <TableColumn prefWidth="75.0" text="TO" />
                                     <TableColumn prefWidth="75.0" text="PF" />
-                                </columns>
+                                    <TableColumn prefWidth="75.0" text="WIN%" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
                               </TableView>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="NFL">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="50.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-                              <Button fx:id="RefreshNFL" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" text="Refresh" />
-                              <Button fx:id="PrintNFL" layoutX="461.0" layoutY="12.0" mnemonicParsing="false" text="Print" />
-                              <ChoiceBox fx:id="PrePostNFL" layoutX="177.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <ChoiceBox fx:id="YearNFL" layoutX="248.0" layoutY="12.0" prefHeight="25.0" prefWidth="56.0" />
-                              <TabPane layoutY="43.0" prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE">
+                           </center>
+                           <top>
+                              <HBox prefHeight="22.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="RefreshNBA" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
+                                    <Button fx:id="PrintNBA" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Print" />
+                                    <ChoiceBox fx:id="PrePostNBA" prefHeight="25.0" prefWidth="15000.0" />
+                                    <ChoiceBox fx:id="YearNBA" prefHeight="25.0" prefWidth="15000.0" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="NFL">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="202.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TabPane prefHeight="329.0" prefWidth="643.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                                  <tabs>
                                     <Tab fx:id="OffenseTab" text="Offense">
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="OffenseTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0">
+                                                <TableView fx:id="OffenseTable" layoutX="5.0" layoutY="10.0" prefHeight="279.0" prefWidth="633.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
                                                       <TableColumn prefWidth="75.0" text="Names" />
                                                       <TableColumn prefWidth="75.0" text="GP" />
@@ -258,7 +306,11 @@
                                                       <TableColumn prefWidth="75.0" text="RYDSPG" />
                                                       <TableColumn prefWidth="75.0" text="PTS" />
                                                       <TableColumn prefWidth="75.0" text="PTSPG" />
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
@@ -268,7 +320,7 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="DefenseTable" prefHeight="279.0" prefWidth="633.0">
+                                                <TableView fx:id="DefenseTable" prefHeight="279.0" prefWidth="633.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
                                                       <TableColumn prefWidth="75.0" text="Names" />
                                                       <TableColumn prefWidth="75.0" text="GP" />
@@ -280,7 +332,11 @@
                                                       <TableColumn prefWidth="75.0" text="RYDSPG" />
                                                       <TableColumn prefWidth="75.0" text="PTS" />
                                                       <TableColumn prefWidth="75.0" text="PTSPG" />
+                                                      <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
                                                 </TableView>
                                              </children>
                                           </AnchorPane>
@@ -288,13 +344,23 @@
                                     </Tab>
                                  </tabs>
                               </TabPane>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+                           </center>
+                           <top>
+                              <HBox prefHeight="23.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="RefreshNFL" mnemonicParsing="false" prefHeight="25.0" prefWidth="1500.0" text="Refresh" />
+                                    <Button fx:id="PrintNFL" mnemonicParsing="false" prefHeight="25.0" prefWidth="1500.0" text="Print" />
+                                    <ChoiceBox fx:id="PrePostNFL" prefHeight="25.0" prefWidth="1500.0" />
+                                    <ChoiceBox fx:id="YearNFL" prefHeight="25.0" prefWidth="1500.0" />
+                                 </children>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
