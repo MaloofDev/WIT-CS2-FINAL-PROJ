@@ -1,3 +1,4 @@
+package application;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,8 +7,6 @@ import java.io.PrintWriter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
-import application.TestGrab;
 
 public class NHLScraper {
 	public static NHLStats[] scrape(int i)

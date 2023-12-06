@@ -63,23 +63,23 @@
                                        <content>
                                           <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="SkateTable" layoutX="5.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="279.0" prefWidth="633.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <TableView fx:id="SkatingTable" layoutX="5.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="279.0" prefWidth="633.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="Names" />
-                                                      <TableColumn prefWidth="75.0" text="GP" />
-                                                      <TableColumn prefWidth="75.0" text="GF/G" />
-                                                      <TableColumn prefWidth="75.0" text="A" />
-                                                      <TableColumn prefWidth="75.0" text="PTS" />
-                                                      <TableColumn prefWidth="75.0" text="PPG" />
-                                                      <TableColumn prefWidth="75.0" text="PP%" />
-                                                      <TableColumn prefWidth="75.0" text="SHG" />
-                                                      <TableColumn prefWidth="75.0" text="S" />
-                                                      <TableColumn prefWidth="75.0" text="S%" />
-                                                      <TableColumn prefWidth="75.0" text="PIM" />
-                                                      <TableColumn prefWidth="75.0" text="PK%" />
-                                                      <TableColumn prefWidth="75.0" text="SOA" />
-                                                      <TableColumn prefWidth="75.0" text="SOG" />
-                                                      <TableColumn prefWidth="75.0" text="SO%" />
+                                                      <TableColumn fx:id="NHLname" prefWidth="75.0" text="Names" />
+                                                      <TableColumn fx:id="NHLGP" prefWidth="75.0" text="GP" />
+                                                      <TableColumn fx:id="GFPG" prefWidth="75.0" text="GF/G" />
+                                                      <TableColumn fx:id="A" prefWidth="75.0" text="A" />
+                                                      <TableColumn fx:id="NHLPTS" prefWidth="75.0" text="PTS" />
+                                                      <TableColumn fx:id="PPG" prefWidth="75.0" text="PPG" />
+                                                      <TableColumn fx:id="PPP" prefWidth="75.0" text="PP%" />
+                                                      <TableColumn fx:id="SHG" prefWidth="75.0" text="SHG" />
+                                                      <TableColumn fx:id="S" prefWidth="75.0" text="S" />
+                                                      <TableColumn fx:id="SP" prefWidth="75.0" text="S%" />
+                                                      <TableColumn fx:id="PIM" prefWidth="75.0" text="PIM" />
+                                                      <TableColumn fx:id="PKP" prefWidth="75.0" text="PK%" />
+                                                      <TableColumn fx:id="SOA" prefWidth="75.0" text="SOA" />
+                                                      <TableColumn fx:id="SOG" prefWidth="75.0" text="SOG" />
+                                                      <TableColumn fx:id="SOP" prefWidth="75.0" text="SO%" />
                                                       <TableColumn prefWidth="75.0" text="W%" />
                                                       <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
@@ -97,20 +97,20 @@
                                              <children>
                                                 <TableView fx:id="GoalTable" focusTraversable="false" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="471.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="Names" />
-                                                      <TableColumn prefWidth="75.0" text="GP" />
-                                                      <TableColumn prefWidth="75.0" text="GA/G" />
-                                                      <TableColumn prefWidth="75.0" text="W" />
-                                                      <TableColumn prefWidth="75.0" text="L" />
-                                                      <TableColumn prefWidth="75.0" text="OTL" />
-                                                      <TableColumn prefWidth="75.0" text="SA" />
-                                                      <TableColumn prefWidth="75.0" text="GA" />
-                                                      <TableColumn prefWidth="75.0" text="S" />
-                                                      <TableColumn prefWidth="75.0" text="SV%" />
-                                                      <TableColumn prefWidth="75.0" text="SO" />
-                                                      <TableColumn prefWidth="75.0" text="SOSA" />
-                                                      <TableColumn prefWidth="75.0" text="SOS" />
-                                                      <TableColumn prefWidth="75.0" text="SOS%" />
+                                                      <TableColumn fx:id="GNHLname" prefWidth="75.0" text="Names" />
+                                                      <TableColumn fx:id="GNHLGP" prefWidth="75.0" text="GP" />
+                                                      <TableColumn fx:id="GAPG" prefWidth="75.0" text="GA/G" />
+                                                      <TableColumn fx:id="NHLW" prefWidth="75.0" text="W" />
+                                                      <TableColumn fx:id="NHLL" prefWidth="75.0" text="L" />
+                                                      <TableColumn fx:id="OTL" prefWidth="75.0" text="OTL" />
+                                                      <TableColumn fx:id="SA" prefWidth="75.0" text="SA" />
+                                                      <TableColumn fx:id="GA" prefWidth="75.0" text="GA" />
+                                                      <TableColumn fx:id="GS" prefWidth="75.0" text="S" />
+                                                      <TableColumn fx:id="SVP" prefWidth="75.0" text="SV%" />
+                                                      <TableColumn fx:id="SO" prefWidth="75.0" text="SO" />
+                                                      <TableColumn fx:id="SOSA" prefWidth="75.0" text="SOSA" />
+                                                      <TableColumn fx:id="SOS" prefWidth="75.0" text="SOS" />
+                                                      <TableColumn fx:id="SOSP" prefWidth="75.0" text="SOS%" />
                                                       <TableColumn prefWidth="75.0" text="W%" />
                                                       <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>

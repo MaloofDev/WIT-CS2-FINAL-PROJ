@@ -32,12 +32,6 @@ public class MainController {
 	@FXML // fx:id="FIeld"
 	private Tab Field; // Value injected by FXMLLoader
 
-	@FXML // fx:id="FieldTable"
-	private TableView<?> FieldTable; // Value injected by FXMLLoader
-
-	@FXML // fx:id="GoalTable"
-	private TableView<?> GoalTable; // Value injected by FXMLLoader
-
 	@FXML // fx:id="GoaltendingTab"
 	private Tab GoaltendingTab; // Value injected by FXMLLoader
 
@@ -99,11 +93,82 @@ public class MainController {
 	private TableColumn<NFLDStats, Float> DNFLPTS;
 	private TableColumn<NFLDStats, Float> DPTSPG;
 
-	@FXML // fx:id="Pitching"
-	private Tab Pitching; // Value injected by FXMLLoader
+	@FXML // fx:id="SkatingTable"
+	private TableView<NHLStats> SkatingTable;
+	private TableColumn<NHLStats, String> NHLname;
+	private TableColumn<NHLStats, Float> NHLGP;
+	private TableColumn<NHLStats, Float> GFPG;
+	private TableColumn<NHLStats, Float> A;
+	private TableColumn<NHLStats, Float> NHLPTS;
+	private TableColumn<NHLStats, Float> PPG;
+	private TableColumn<NHLStats, Float> PPP;
+	private TableColumn<NHLStats, Float> SHG;
+	private TableColumn<NHLStats, Float> S;
+	private TableColumn<NHLStats, Float> SP;
+	private TableColumn<NHLStats, Float> PIM;
+	private TableColumn<NHLStats, Float> PKP;
+	private TableColumn<NHLStats, Float> SOA;
+	private TableColumn<NHLStats, Float> SOG;
+	private TableColumn<NHLStats, Float> SOP;
+
+	@FXML // fx:id="GoalTable"
+	private TableView<NHLStats> GoalTable;
+	private TableColumn<NHLStats, String> GNHLname;
+	private TableColumn<NHLStats, Float> GNHLGP;
+	private TableColumn<NHLStats, Float> GAPG;
+	private TableColumn<NHLStats, Float> NHLW;
+	private TableColumn<NHLStats, Float> NHLL;
+	private TableColumn<NHLStats, Float> OTL;
+	private TableColumn<NHLStats, Float> SA;
+	private TableColumn<NHLStats, Float> GA;
+	private TableColumn<NHLStats, Float> GS;
+	private TableColumn<NHLStats, Float> SVP;
+	private TableColumn<NHLStats, Float> SO;
+	private TableColumn<NHLStats, Float> SOSA;
+	private TableColumn<NHLStats, Float> SOS;
+	private TableColumn<NHLStats, Float> SOSP;
+
+	@FXML // fx:id="FieldTable"
+	private TableView<MLBStats> FieldTable;
+	private TableColumn<MLBStats, String> MLBname;
+	private TableColumn<MLBStats, Float> MLBGP;
+	private TableColumn<MLBStats, Float> AB;
+	private TableColumn<MLBStats, Float> R;
+	private TableColumn<MLBStats, Float> H;
+	private TableColumn<MLBStats, Float> DBL;
+	private TableColumn<MLBStats, Float> TRPL;
+	private TableColumn<MLBStats, Float> HR;
+	private TableColumn<MLBStats, Float> RBI;
+	private TableColumn<MLBStats, Float> TB;
+	private TableColumn<MLBStats, Float> BB;
+	private TableColumn<MLBStats, Float> MLBSO;
+	private TableColumn<MLBStats, Float> SB;
+	private TableColumn<MLBStats, Float> AVG;
+	private TableColumn<MLBStats, Float> OBP;
+	private TableColumn<MLBStats, Float> SLG;
+	private TableColumn<MLBStats, Float> OPS;
 
 	@FXML // fx:id="PitchingTable"
-	private TableView<?> PitchingTable; // Value injected by FXMLLoader
+	private TableView<MLBPitchingStats> PitchingTable;
+	private TableColumn<MLBPitchingStats, Float> PMLBGP;
+	private TableColumn<MLBPitchingStats, Float> MLBW;
+	private TableColumn<MLBPitchingStats, Float> MLBL;
+	private TableColumn<MLBPitchingStats, Float> ERA;
+	private TableColumn<MLBPitchingStats, Float> SV;
+	private TableColumn<MLBPitchingStats, Float> CG;
+	private TableColumn<MLBPitchingStats, Float> SHO;
+	private TableColumn<MLBPitchingStats, Float> QS;
+	private TableColumn<MLBPitchingStats, Float> IP;
+	private TableColumn<MLBPitchingStats, Float> PMLBH;
+	private TableColumn<MLBPitchingStats, Float> ER;
+	private TableColumn<MLBPitchingStats, Float> PMLBHR;
+	private TableColumn<MLBPitchingStats, Float> PMLBBB;
+	private TableColumn<MLBPitchingStats, Float> PMLBSO;
+	private TableColumn<MLBPitchingStats, Float> OBA;
+	private TableColumn<MLBPitchingStats, Float> WHIP;
+
+	@FXML // fx:id="Pitching"
+	private Tab Pitching; // Value injected by FXMLLoader
 
 	@FXML // fx:id="PrePostMLB"
 	private ChoiceBox<?> PrePostMLB; // Value injected by FXMLLoader
@@ -214,64 +279,134 @@ public class MainController {
 	}
 
 	private void initializeNFLDData() {
-		System.out.println("Initializing NFL Defense Data...");
+		NFLDScraper nfldWebScraper = new NFLDScraper();
+		NFLDStats[] nfldTeamStats = nfldWebScraper.Scrape();
 
-		try {
-			// Assuming you have an NFLWebScraper class with a method like getNFLTeamStats()
-			NFLDScraper nfldWebScraper = new NFLDScraper();
-			NFLDStats[] nfldTeamStats = nfldWebScraper.Scrape();
+		ObservableList<NFLDStats> data = FXCollections.observableArrayList(nfldTeamStats);
 
-			for (NFLDStats stats : nfldTeamStats) {
-				System.out.println("Name: " + stats.getName());
-				System.out.println("GP: " + stats.getGP().getValue());
-				System.out.println("TYDS: " + stats.getTYDS().getValue());
-				System.out.println("TYDSPG: " + stats.getTYDSPG().getValue());
-				System.out.println("PYDS: " + stats.getPYDS().getValue());
-				System.out.println("PYDSPG: " + stats.getPYDSPG().getValue());
-				System.out.println("RYDS: " + stats.getRYDS().getValue());
-				System.out.println("RYDSPG: " + stats.getRYDSPG().getValue());
-				System.out.println("PTS: " + stats.getPTS().getValue());
-				System.out.println("PTSPG: " + stats.getPTSPG().getValue());
+		NFLDefenseTable.setItems(data);
+		DNFLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+		DNFLGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
+		DTYDS.setCellValueFactory(cellData -> cellData.getValue().getTYDS().asObject());
+		DTYDSPG.setCellValueFactory(cellData -> cellData.getValue().getTYDSPG().asObject());
+		DPYDS.setCellValueFactory(cellData -> cellData.getValue().getPYDS().asObject());
+		DPYDSPG.setCellValueFactory(cellData -> cellData.getValue().getPYDSPG().asObject());
+		DRYDS.setCellValueFactory(cellData -> cellData.getValue().getRYDS().asObject());
+		DRYDSPG.setCellValueFactory(cellData -> cellData.getValue().getRYDSPG().asObject());
+		DNFLPTS.setCellValueFactory(cellData -> cellData.getValue().getPTS().asObject());
+		DPTSPG.setCellValueFactory(cellData -> cellData.getValue().getPTSPG().asObject());
 
-				// Add more print statements if there are additional getters in NFLDStats
+		NFLDefenseTable.getColumns().setAll(DNFLname, DNFLGP, DTYDS, DTYDSPG, DPYDS, DPYDSPG, DRYDS, DRYDSPG, DNFLPTS,
+				DPTSPG);
+	}
 
-				System.out.println("----");
-			}
+	private void initializeNHLData() {
+		NHLScraper nhlscraper = new NHLScraper();
+		NHLStats[] SNHLStats = nhlscraper.scrape(1);
+		NHLStats[] GNHLStats = nhlscraper.scrape(0);
+		ObservableList<NHLStats> Sdata = FXCollections.observableArrayList(SNHLStats);
+		ObservableList<NHLStats> Gdata = FXCollections.observableArrayList(GNHLStats);
 
-			// Assuming your TeamStats class has appropriate getters for each column
-			ObservableList<NFLDStats> data = FXCollections.observableArrayList(nfldTeamStats);
+		NHLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+		GNHLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+		NHLGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
+		GFPG.setCellValueFactory(cellData -> cellData.getValue().getGFPG().asObject());
+		A.setCellValueFactory(cellData -> cellData.getValue().getA().asObject());
+		NHLPTS.setCellValueFactory(cellData -> cellData.getValue().getPTS().asObject());
+		PPG.setCellValueFactory(cellData -> cellData.getValue().getPPG().asObject());
+		PPP.setCellValueFactory(cellData -> cellData.getValue().getPPP().asObject());
+		SHG.setCellValueFactory(cellData -> cellData.getValue().getSHG().asObject());
+		S.setCellValueFactory(cellData -> cellData.getValue().getS().asObject());
+		GS.setCellValueFactory(cellData -> cellData.getValue().getS().asObject());
+		SP.setCellValueFactory(cellData -> cellData.getValue().getSP().asObject());
+		PIM.setCellValueFactory(cellData -> cellData.getValue().getPIM().asObject());
+		PKP.setCellValueFactory(cellData -> cellData.getValue().getPKP().asObject());
+		SOA.setCellValueFactory(cellData -> cellData.getValue().getSOA().asObject());
+		SOG.setCellValueFactory(cellData -> cellData.getValue().getSOG().asObject());
+		SOP.setCellValueFactory(cellData -> cellData.getValue().getSOP().asObject());
+		GAPG.setCellValueFactory(cellData -> cellData.getValue().getGAPG().asObject());
+		NHLW.setCellValueFactory(cellData -> cellData.getValue().getW().asObject());
+		NHLL.setCellValueFactory(cellData -> cellData.getValue().getL().asObject());
+		OTL.setCellValueFactory(cellData -> cellData.getValue().getOTL().asObject());
+		SA.setCellValueFactory(cellData -> cellData.getValue().getSA().asObject());
+		GA.setCellValueFactory(cellData -> cellData.getValue().getGA().asObject());
+		SVP.setCellValueFactory(cellData -> cellData.getValue().getSVP().asObject());
+		SO.setCellValueFactory(cellData -> cellData.getValue().getSO().asObject());
+		SOSA.setCellValueFactory(cellData -> cellData.getValue().getSOSA().asObject());
+		SOS.setCellValueFactory(cellData -> cellData.getValue().getSOS().asObject());
+		SOSP.setCellValueFactory(cellData -> cellData.getValue().getSOSP().asObject());
 
-			// Check if data is not null
-			if (data != null) {
-				// Set the items and columns for the NFL table
-				if (NFLDefenseTable != null) {
-					NFLDefenseTable.setItems(data);
-					// Replace these with the actual TableColumn names for NFL data
-					DNFLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
-					DNFLGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
-					DTYDS.setCellValueFactory(cellData -> cellData.getValue().getTYDS().asObject());
-					DTYDSPG.setCellValueFactory(cellData -> cellData.getValue().getTYDSPG().asObject());
-					DPYDS.setCellValueFactory(cellData -> cellData.getValue().getPYDS().asObject());
-					DPYDSPG.setCellValueFactory(cellData -> cellData.getValue().getPYDSPG().asObject());
-					DRYDS.setCellValueFactory(cellData -> cellData.getValue().getRYDS().asObject());
-					DRYDSPG.setCellValueFactory(cellData -> cellData.getValue().getRYDSPG().asObject());
-					DNFLPTS.setCellValueFactory(cellData -> cellData.getValue().getPTS().asObject());
-					DPTSPG.setCellValueFactory(cellData -> cellData.getValue().getPTSPG().asObject());
+		SkatingTable.setItems(Sdata);
+		GoalTable.setItems(Gdata);
+		SkatingTable.getColumns().setAll(NHLname, NHLGP, GFPG, A, NHLPTS, PPG, PPP, SHG, S, SP, PIM, PKP, SOA, SOG,
+				SOP);
+		GoalTable.getColumns().setAll(GNHLname, GNHLGP, GAPG, NHLW, NHLL, OTL, SA, GA, GS, SVP, SO, SOSA, SOS, SOSP);
 
-					NFLDefenseTable.getColumns().setAll(DNFLname, DNFLGP, DTYDS, DTYDSPG, DPYDS, DPYDSPG, DRYDS,
-							DRYDSPG, DNFLPTS, DPTSPG);
+	}
 
-					System.out.println("NFL Defense Data Initialized.");
-				} else {
-					System.out.println("NFLDefenseTable is null.");
-				}
-			} else {
-				System.out.println("Data is null.");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Error initializing NFL Defense Data: " + e.getMessage());
-		}
+	private void initializeMLBPitchingStats() {
+		MLBPitchingScraper mlbPitchingScraper = new MLBPitchingScraper(); // Replace with your actual scraper class
+		MLBPitchingStats[] mlbPitchingStats = mlbPitchingScraper.Scrape(); // Replace with your actual scraping
+																			// logic
+
+		ObservableList<MLBPitchingStats> mlbPitchingStatsList = FXCollections.observableArrayList(mlbPitchingStats);
+
+		// Assuming you have a TableView named MLBPitchingTable
+		PitchingTable.setItems(mlbPitchingStatsList);
+
+		// Initialize TableColumn bindings
+		PMLBGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
+		MLBW.setCellValueFactory(cellData -> cellData.getValue().getW().asObject());
+		MLBL.setCellValueFactory(cellData -> cellData.getValue().getL().asObject());
+		ERA.setCellValueFactory(cellData -> cellData.getValue().getERA().asObject());
+		SV.setCellValueFactory(cellData -> cellData.getValue().getSV().asObject());
+		CG.setCellValueFactory(cellData -> cellData.getValue().getCG().asObject());
+		SHO.setCellValueFactory(cellData -> cellData.getValue().getSHO().asObject());
+		QS.setCellValueFactory(cellData -> cellData.getValue().getQS().asObject());
+		IP.setCellValueFactory(cellData -> cellData.getValue().getIP().asObject());
+		PMLBH.setCellValueFactory(cellData -> cellData.getValue().getH().asObject());
+		ER.setCellValueFactory(cellData -> cellData.getValue().getER().asObject());
+		PMLBHR.setCellValueFactory(cellData -> cellData.getValue().getHR().asObject());
+		PMLBBB.setCellValueFactory(cellData -> cellData.getValue().getBB().asObject());
+		PMLBSO.setCellValueFactory(cellData -> cellData.getValue().getSO().asObject());
+		OBA.setCellValueFactory(cellData -> cellData.getValue().getOBA().asObject());
+		WHIP.setCellValueFactory(cellData -> cellData.getValue().getWHIP().asObject());
+
+		// Assuming you have a TableColumn named PMLBGP and MLBPitchingTable
+		PitchingTable.getColumns().setAll(PMLBGP, MLBW, MLBL, ERA, SV, CG, SHO, QS, IP, PMLBH, ER, PMLBHR, PMLBBB,
+				PMLBSO, OBA, WHIP);
+	}
+
+	private void initializeMLBFieldingStats() {
+		MLBScraper mlbFieldingScraper = new MLBScraper(); // Replace with your actual scraper class
+		MLBStats[] mlbFieldingStats = mlbFieldingScraper.scrape(); // Replace with your actual scraping
+																	// logic
+
+		ObservableList<MLBStats> mlbFieldingStatsList = FXCollections.observableArrayList(mlbFieldingStats);
+
+		// Assuming you have a TableView named MLBFieldingTable
+		FieldTable.setItems(mlbFieldingStatsList);
+
+		// Initialize TableColumn bindings
+		// Replace the TableColumn types with your actual types
+		MLBGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
+		AB.setCellValueFactory(cellData -> cellData.getValue().getAB().asObject());
+		R.setCellValueFactory(cellData -> cellData.getValue().getR().asObject());
+		H.setCellValueFactory(cellData -> cellData.getValue().getH().asObject());
+		DBL.setCellValueFactory(cellData -> cellData.getValue().getDBL().asObject());
+		TRPL.setCellValueFactory(cellData -> cellData.getValue().getTRPL().asObject());
+		HR.setCellValueFactory(cellData -> cellData.getValue().getHR().asObject());
+		RBI.setCellValueFactory(cellData -> cellData.getValue().getRBI().asObject());
+		TB.setCellValueFactory(cellData -> cellData.getValue().getTB().asObject());
+		BB.setCellValueFactory(cellData -> cellData.getValue().getBB().asObject());
+		MLBSO.setCellValueFactory(cellData -> cellData.getValue().getSO().asObject());
+		SB.setCellValueFactory(cellData -> cellData.getValue().getSB().asObject());
+		AVG.setCellValueFactory(cellData -> cellData.getValue().getAVG().asObject());
+		OBP.setCellValueFactory(cellData -> cellData.getValue().getOBP().asObject());
+		SLG.setCellValueFactory(cellData -> cellData.getValue().getSLG().asObject());
+		OPS.setCellValueFactory(cellData -> cellData.getValue().getOPS().asObject());
+
+		FieldTable.getColumns().setAll(MLBGP, AB, R, H, DBL, TRPL, HR, RBI, TB, BB, MLBSO, SB, AVG, OBP, SLG, OPS);
 	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
@@ -281,7 +416,6 @@ public class MainController {
 				: "fx:id=\"DefenseTable\" was not injected: check your FXML file 'GUI test.fxml'.";
 		assert Field != null : "fx:id=\"FIeld\" was not injected: check your FXML file 'GUI test.fxml'.";
 		assert FieldTable != null : "fx:id=\"FieldTable\" was not injected: check your FXML file 'GUI test.fxml'.";
-		assert GoalTable != null : "fx:id=\"GoalTable\" was not injected: check your FXML file 'GUI test.fxml'.";
 		assert GoaltendingTab != null
 				: "fx:id=\"GoaltendingTab\" was not injected: check your FXML file 'GUI test.fxml'.";
 		assert Main != null : "fx:id=\"Main\" was not injected: check your FXML file 'GUI test.fxml'.";
@@ -317,7 +451,7 @@ public class MainController {
 		assert GP != null : "fx:id=\"GP\" TableColumn was not injected: check your FXML file 'GUI test.fxml'.";
 		assert FGM != null : "fx:id=\"FGM\" TableColumn was not injected: check your FXML file 'GUI test.fxml'.";
 		assert FGP != null : "fx:id=\"FGP\" TableColumn was not injected: check your FXML file 'GUI test.fxml'.";
-
+		// NFL Offense Columns
 		NFLname = new TableColumn<>("Name");
 		NFLGP = new TableColumn<>("GP");
 		TYDS = new TableColumn<>("TYDS");
@@ -328,7 +462,7 @@ public class MainController {
 		RYDSPG = new TableColumn<>("RYDSPG");
 		NFLPTS = new TableColumn<>("PTS");
 		PTSPG = new TableColumn<>("PTSPG");
-
+		// NFL Defense Columns
 		DNFLname = new TableColumn<>("Name");
 		DNFLGP = new TableColumn<>("GP");
 		DTYDS = new TableColumn<>("TYDS");
@@ -340,6 +474,38 @@ public class MainController {
 		DNFLPTS = new TableColumn<>("PTS");
 		DPTSPG = new TableColumn<>("PTSPG");
 
+		// NFL Table Columns
+		NHLname = new TableColumn<>("Name");
+		GNHLname = new TableColumn<>("Name");
+		NHLGP = new TableColumn<>("GP");
+		GNHLGP = new TableColumn<>("Name");
+		GFPG = new TableColumn<>("GFPG");
+		A = new TableColumn<>("A");
+		NHLPTS = new TableColumn<>("PTS");
+		PPG = new TableColumn<>("PPG");
+		PPP = new TableColumn<>("PPP");
+		SHG = new TableColumn<>("SHG");
+		S = new TableColumn<>("S");
+		GS = new TableColumn<>("S");
+		SP = new TableColumn<>("SP");
+		PIM = new TableColumn<>("PIM");
+		PKP = new TableColumn<>("PKP");
+		SOA = new TableColumn<>("SOA");
+		SOG = new TableColumn<>("SOG");
+		SOP = new TableColumn<>("SOP");
+		GAPG = new TableColumn<>("GAPG");
+		NHLW = new TableColumn<>("W");
+		NHLL = new TableColumn<>("L");
+		OTL = new TableColumn<>("OTL");
+		SA = new TableColumn<>("SA");
+		GA = new TableColumn<>("GA");
+		SVP = new TableColumn<>("SVP");
+		SO = new TableColumn<>("SO");
+		SOSA = new TableColumn<>("SOSA");
+		SOS = new TableColumn<>("SOS");
+		SOSP = new TableColumn<>("SOSP");
+
+		// NBA Columns
 		name = new TableColumn<>("Name");
 		GP = new TableColumn<>("GP");
 		PTS = new TableColumn<>("PTS");
@@ -360,9 +526,50 @@ public class MainController {
 		BLK = new TableColumn<>("BLK");
 		TO = new TableColumn<>("TO");
 		PF = new TableColumn<>("PF");
+
+		// MLB Pitching Columns
+		PMLBGP = new TableColumn<>("P");
+		MLBW = new TableColumn<>("W");
+		MLBL = new TableColumn<>("L");
+		ERA = new TableColumn<>("ERA");
+		SV = new TableColumn<>("SV");
+		CG = new TableColumn<>("CG");
+		SHO = new TableColumn<>("SHO");
+		QS = new TableColumn<>("QS");
+		IP = new TableColumn<>("IP");
+		PMLBH = new TableColumn<>("H");
+		ER = new TableColumn<>("ER");
+		PMLBHR = new TableColumn<>("HR");
+		PMLBBB = new TableColumn<>("BB");
+		PMLBSO = new TableColumn<>("SO");
+		OBA = new TableColumn<>("OBA");
+		WHIP = new TableColumn<>("WHIP");
+
+		// MLB Field Columns
+		MLBname = new TableColumn<>("Name");
+		MLBGP = new TableColumn<>("GP");
+		AB = new TableColumn<>("AB");
+		R = new TableColumn<>("R");
+		H = new TableColumn<>("H");
+		DBL = new TableColumn<>("DBL");
+		TRPL = new TableColumn<>("TRPL");
+		HR = new TableColumn<>("HR");
+		RBI = new TableColumn<>("RBI");
+		TB = new TableColumn<>("TB");
+		BB = new TableColumn<>("BB");
+		MLBSO = new TableColumn<>("SO");
+		SB = new TableColumn<>("SB");
+		AVG = new TableColumn<>("AVG");
+		OBP = new TableColumn<>("OBP");
+		SLG = new TableColumn<>("SLG");
+		OPS = new TableColumn<>("OPS");
+
 		initializeNBAData();
 		initializeNFLOData();
 		initializeNFLDData();
+		initializeNHLData();
+		initializeMLBFieldingStats();
+		initializeMLBPitchingStats();
 	}
 
 }
