@@ -6,6 +6,7 @@ private float GP, TYDS, TYDSPG, PYDS, PYDSPG, RYDS, RYDSPG, PTS, PTSPG;
 	
 	public NFLStats(String name, float[] stats) 
 	{
+		
 		this.name = name;
 		GP = stats[0];
 		TYDS = stats[1];
@@ -16,6 +17,10 @@ private float GP, TYDS, TYDSPG, PYDS, PYDSPG, RYDS, RYDSPG, PTS, PTSPG;
 		RYDSPG = stats[6];
 		PTS = stats[7];
 		PTSPG = stats[8];
+		
+		
+		
+		
 	}
 	
 	public float getGP() 
