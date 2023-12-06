@@ -256,7 +256,6 @@ Chicago Bulls            20       106.9    39.6     89.1     44.4     11.6     3
 Memphis Grizzlies        17       105.6    38.7     90.7     42.7     13.1     39.9     32.7     15.1     19.6     76.9     10.8     31.4     42.1     24.2     7.6      6.2      13.5     21.1    
 Portland Trail Blazers   18       104.7    38.8     88.6     43.8     11.0     32.5     33.8     16.2     20.5     78.9     11.9     28.7     40.7     22.2     8.9      4.8      15.8     20.4    
 
-The output file does not correspond to the code written above only for the sake of providing an output file that could fit into this document, but each of the scrapers works the same so the idea is the same.
 
 Discussion
 
