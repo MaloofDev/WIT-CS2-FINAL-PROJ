@@ -150,6 +150,7 @@ public class MainController {
 
 	@FXML // fx:id="PitchingTable"
 	private TableView<MLBPitchingStats> PitchingTable;
+	private TableColumn<MLBPitchingStats, String> PMLBname;
 	private TableColumn<MLBPitchingStats, Float> PMLBGP;
 	private TableColumn<MLBPitchingStats, Float> MLBW;
 	private TableColumn<MLBPitchingStats, Float> MLBL;
@@ -355,6 +356,7 @@ public class MainController {
 		PitchingTable.setItems(mlbPitchingStatsList);
 
 		// Initialize TableColumn bindings
+		PMLBname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 		PMLBGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
 		MLBW.setCellValueFactory(cellData -> cellData.getValue().getW().asObject());
 		MLBL.setCellValueFactory(cellData -> cellData.getValue().getL().asObject());
@@ -373,7 +375,7 @@ public class MainController {
 		WHIP.setCellValueFactory(cellData -> cellData.getValue().getWHIP().asObject());
 
 		// Assuming you have a TableColumn named PMLBGP and MLBPitchingTable
-		PitchingTable.getColumns().setAll(PMLBGP, MLBW, MLBL, ERA, SV, CG, SHO, QS, IP, PMLBH, ER, PMLBHR, PMLBBB,
+		PitchingTable.getColumns().setAll(PMLBname,PMLBGP, MLBW, MLBL, ERA, SV, CG, SHO, QS, IP, PMLBH, ER, PMLBHR, PMLBBB,
 				PMLBSO, OBA, WHIP);
 	}
 
@@ -389,6 +391,7 @@ public class MainController {
 
 		// Initialize TableColumn bindings
 		// Replace the TableColumn types with your actual types
+		MLBname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 		MLBGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
 		AB.setCellValueFactory(cellData -> cellData.getValue().getAB().asObject());
 		R.setCellValueFactory(cellData -> cellData.getValue().getR().asObject());
@@ -406,7 +409,7 @@ public class MainController {
 		SLG.setCellValueFactory(cellData -> cellData.getValue().getSLG().asObject());
 		OPS.setCellValueFactory(cellData -> cellData.getValue().getOPS().asObject());
 
-		FieldTable.getColumns().setAll(MLBGP, AB, R, H, DBL, TRPL, HR, RBI, TB, BB, MLBSO, SB, AVG, OBP, SLG, OPS);
+		FieldTable.getColumns().setAll(MLBname,MLBGP, AB, R, H, DBL, TRPL, HR, RBI, TB, BB, MLBSO, SB, AVG, OBP, SLG, OPS);
 	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
@@ -528,6 +531,7 @@ public class MainController {
 		PF = new TableColumn<>("PF");
 
 		// MLB Pitching Columns
+		PMLBname = new TableColumn<>("Name");
 		PMLBGP = new TableColumn<>("P");
 		MLBW = new TableColumn<>("W");
 		MLBL = new TableColumn<>("L");

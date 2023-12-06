@@ -164,23 +164,23 @@
                                              <children>
                                                 <TableView fx:id="FieldTable" layoutX="-1.0" prefHeight="315.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="Names" />
-                                                      <TableColumn prefWidth="75.0" text="GP" />
-                                                      <TableColumn prefWidth="75.0" text="AB" />
-                                                      <TableColumn prefWidth="75.0" text="R" />
-                                                      <TableColumn prefWidth="75.0" text="H" />
-                                                      <TableColumn prefWidth="75.0" text="TwoB" />
-                                                      <TableColumn prefWidth="75.0" text="ThreeB" />
-                                                      <TableColumn prefWidth="75.0" text="HR" />
-                                                      <TableColumn prefWidth="75.0" text="RBI" />
-                                                      <TableColumn prefWidth="75.0" text="TB" />
-                                                      <TableColumn prefWidth="75.0" text="BB" />
-                                                      <TableColumn prefWidth="75.0" text="SO" />
-                                                      <TableColumn prefWidth="75.0" text="SB" />
-                                                      <TableColumn prefWidth="75.0" text="AVG" />
-                                                      <TableColumn prefWidth="75.0" text="OBP" />
-                                                      <TableColumn prefWidth="75.0" text="SLG" />
-                                                      <TableColumn prefWidth="75.0" text="OPS" />
+                                                      <TableColumn fx:id="MLBname" prefWidth="75.0" text="Names" />
+                                                      <TableColumn fx:id="MLBGP" prefWidth="75.0" text="GP" />
+                                                      <TableColumn fx:id="AB" prefWidth="75.0" text="AB" />
+                                                      <TableColumn fx:id="R" prefWidth="75.0" text="R" />
+                                                      <TableColumn fx:id="H" prefWidth="75.0" text="H" />
+                                                      <TableColumn fx:id="DBL" prefWidth="75.0" text="TwoB" />
+                                                      <TableColumn fx:id="TRPL" prefWidth="75.0" text="ThreeB" />
+                                                      <TableColumn fx:id="HR" prefWidth="75.0" text="HR" />
+                                                      <TableColumn fx:id="RBI" prefWidth="75.0" text="RBI" />
+                                                      <TableColumn fx:id="TB" prefWidth="75.0" text="TB" />
+                                                      <TableColumn fx:id="BB" prefWidth="75.0" text="BB" />
+                                                      <TableColumn fx:id="MLBSO" prefWidth="75.0" text="SO" />
+                                                      <TableColumn fx:id="SB" prefWidth="75.0" text="SB" />
+                                                      <TableColumn fx:id="AVG" prefWidth="75.0" text="AVG" />
+                                                      <TableColumn fx:id="OBP" prefWidth="75.0" text="OBP" />
+                                                      <TableColumn fx:id="SLG" prefWidth="75.0" text="SLG" />
+                                                      <TableColumn fx:id="OPS" prefWidth="75.0" text="OPS" />
                                                       <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
                                                    <columnResizePolicy>
@@ -197,23 +197,23 @@
                                              <children>
                                                 <TableView fx:id="PitchingTable" layoutY="1.0" prefHeight="299.0" prefWidth="643.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="Names" />
-                                                      <TableColumn prefWidth="75.0" text="GP" />
-                                                      <TableColumn prefWidth="75.0" text="W" />
-                                                      <TableColumn prefWidth="75.0" text="L" />
-                                                      <TableColumn prefWidth="75.0" text="ERA" />
-                                                      <TableColumn prefWidth="75.0" text="SV" />
-                                                      <TableColumn prefWidth="75.0" text="CG" />
-                                                      <TableColumn prefWidth="75.0" text="SHO" />
-                                                      <TableColumn prefWidth="75.0" text="QS" />
-                                                      <TableColumn prefWidth="75.0" text="IP" />
-                                                      <TableColumn prefWidth="75.0" text="H" />
-                                                      <TableColumn prefWidth="75.0" text="ER" />
-                                                      <TableColumn prefWidth="75.0" text="HR" />
-                                                      <TableColumn prefWidth="75.0" text="BB" />
-                                                      <TableColumn prefWidth="75.0" text="SO" />
-                                                      <TableColumn prefWidth="75.0" text="OBA" />
-                                                      <TableColumn prefWidth="75.0" text="WHIP" />
+                                                      <TableColumn fx:id="MLBname" prefWidth="75.0" text="Names" />
+                                                      <TableColumn fx:id="PMLBGP" prefWidth="75.0" text="GP" />
+                                                      <TableColumn fx:id="MLBW" prefWidth="75.0" text="W" />
+                                                      <TableColumn fx:id="MLBL" prefWidth="75.0" text="L" />
+                                                      <TableColumn fx:id="ERA" prefWidth="75.0" text="ERA" />
+                                                      <TableColumn fx:id="SV" prefWidth="75.0" text="SV" />
+                                                      <TableColumn fx:id="CG" prefWidth="75.0" text="CG" />
+                                                      <TableColumn fx:id="SHO" prefWidth="75.0" text="SHO" />
+                                                      <TableColumn fx:id="QS" prefWidth="75.0" text="QS" />
+                                                      <TableColumn fx:id="IP" prefWidth="75.0" text="IP" />
+                                                      <TableColumn fx:id="PMLBH" prefWidth="75.0" text="H" />
+                                                      <TableColumn fx:id="ER" prefWidth="75.0" text="ER" />
+                                                      <TableColumn fx:id="PMLBHR" prefWidth="75.0" text="HR" />
+                                                      <TableColumn fx:id="PMLBBB" prefWidth="75.0" text="BB" />
+                                                      <TableColumn fx:id="PMLBSO" prefWidth="75.0" text="SO" />
+                                                      <TableColumn fx:id="OBA" prefWidth="75.0" text="OBA" />
+                                                      <TableColumn fx:id="WHIP" prefWidth="75.0" text="WHIP" />
                                                       <TableColumn prefWidth="75.0" text="WIN%" />
                                                    </columns>
                                                    <columnResizePolicy>
