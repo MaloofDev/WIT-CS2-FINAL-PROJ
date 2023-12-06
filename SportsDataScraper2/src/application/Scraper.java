@@ -1,3 +1,4 @@
+package application;
 import org.jsoup.nodes.Element;
 
 public abstract class Scraper 

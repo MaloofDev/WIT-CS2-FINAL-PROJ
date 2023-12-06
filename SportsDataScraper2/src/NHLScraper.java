@@ -7,6 +7,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import application.TestGrab;
+
 public class NHLScraper {
 	public static NHLStats[] scrape(int i)
 	{

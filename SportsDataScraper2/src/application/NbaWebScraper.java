@@ -1,3 +1,5 @@
+package application;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,9 +18,9 @@ public class NbaWebScraper {
 	 *
 	 * @return An array of TeamStats objects containing team statistics.
 	 */
-	public static TeamStats[] Scrape() {
+	public static NBAStats[] Scrape() {
 		final String url = "https://www.espn.com/nba/stats/team";
-		TeamStats[] rosterstats = new TeamStats[30];
+		NBAStats[] rosterstats = new NBAStats[30];
 		TestGrab teams = new TestGrab();
 		String[] name = new String[30];
 		try {
@@ -41,7 +43,7 @@ public class NbaWebScraper {
 				} else {
 					double[] stats = extractStats(row); // Extract team stats
 
-					rosterstats[k] = new TeamStats(name[k], stats);
+					rosterstats[k] = new NBAStats(name[k], stats);
 					k++;
 				}
 			}
@@ -81,7 +83,7 @@ public class NbaWebScraper {
 	 * @param args Command-line arguments (not used).
 	 */
 	public static void main(String[] args) {
-		TeamStats[] teams = Scrape();
+		NBAStats[] teams = Scrape();
 
 		// Define the file path where you want to save the results
 		String filePath = "./src/output.txt"; // Update
@@ -98,7 +100,7 @@ public class NbaWebScraper {
 						"%-24s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s %-8s%n",
 						"Team", "GP", "PTS", "FGM", "FGA", "FG%", "3PM", "3PA", "3P%", "FTM", "FTA", "FT%", "OR", "DR",
 						"REB", "AST", "STL", "BLK", "TO", "PF");
-				for (TeamStats team : teams) {
+				for (NBAStats team : teams) {
 					writer.printf(
 							"%-24s %-8.0f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f %-8.1f%n",
 							team.getName(), team.getGP(), team.getPTS(), team.getFGM(), team.getFGA(), team.getFGP(),

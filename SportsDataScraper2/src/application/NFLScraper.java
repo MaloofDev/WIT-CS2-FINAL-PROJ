@@ -1,3 +1,4 @@
+package application;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import org.jsoup.nodes.Element;
 public class NFLScraper {
 	//int used to decide between offense (1) and defense anything else
 
-	public static NFLStats[] scrape()
+	public static NFLStats[] Scrape()
 	{
 		String url = "https://www.espn.com/nfl/stats/team";
 
@@ -65,7 +66,7 @@ public class NFLScraper {
 		
 		public static void main(String[] args) 
 		{
-		NFLStats[] teams = scrape();
+		NFLStats[] teams = Scrape();
 
 		// Define the file path where you want to save the results
 		String filePath = "./src/NFLOutput.txt"; // Update
