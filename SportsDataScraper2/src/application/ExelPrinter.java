@@ -40,14 +40,14 @@ public class ExelPrinter {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 
-		printer("TestInput.txt");
+		//printer("TestInput.txt");
 
 	}
 
-	public static void printer(String input) throws FileNotFoundException {
-		File inputFile = new File(input);
+	public static void printer(String[][] input) throws FileNotFoundException {
+		
 
-		Scanner inputReader = new Scanner(inputFile);
+		/*Scanner inputReader = new Scanner(inputFile);
 		ArrayList<ArrayList<String>> file = new ArrayList<ArrayList<String>>();
 		do {
 			ArrayList<String> CLine = new ArrayList<String>();
@@ -65,16 +65,16 @@ public class ExelPrinter {
 			file.add(CLine);
 
 		} while (inputReader.hasNextLine());
-		inputReader.close();
+		inputReader.close();*/
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet spreadsheet = workbook.createSheet(" Output data ");
 
-		for (int i = 0; i < file.size(); i++) {
+		for (int i = 0; i < input.length; i++) {
 			XSSFRow row = spreadsheet.createRow(i);
 			// System.out.println(i);
-			for (int ii = 0; ii < file.get(i).size(); ii++) {
+			for (int ii = 0; ii < input[i].length; ii++) {
 				Cell cell = row.createCell(ii);
-				cell.setCellValue(file.get(i).get(ii));
+				cell.setCellValue(input[i][ii]);
 			}
 
 		}

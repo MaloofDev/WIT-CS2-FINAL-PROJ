@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileNotFoundException;
+
 /**
  * Sample Skeleton for 'GUI test.fxml' Controller Class
  */
@@ -30,7 +32,7 @@ public class MainController {
 	@FXML // fx:id="DefenseTab"
 	private Tab DefenseTab; // Value injected by FXMLLoader
 
-	@FXML // fx:id="FIeld"
+	@FXML // fx:id="Field"
 	private Tab Field; // Value injected by FXMLLoader
 
 	@FXML // fx:id="GoaltendingTab"
@@ -225,34 +227,200 @@ public class MainController {
 
 	@FXML // fx:id="YearNHL"
 	private ChoiceBox<?> YearNHL; // Value injected by FXMLLoader
-	
+
 	public void RefreshMLB(ActionEvent e) {
 		initializeMLBFieldingStats();
 		initializeMLBPitchingStats();
-		//System.out.print("work");
+		// System.out.print("work");
 	}
+
 	public void RefreshNFL(ActionEvent e) {
 		initializeNFLDData();
 		initializeNFLOData();
-		//System.out.print("work");
-
+		// System.out.print("work");
 
 	}
+
 	public void RefreshNHL(ActionEvent e) {
 		initializeNHLData();
-	
+
 	}
+
 	public void RefreshNBA(ActionEvent e) {
 		initializeNBAData();
-		
 
 	}
-	
-	public void PrintMLB(ActionEvent e) {
-		
-	}
-	
 
+	ExelPrinter ep = new ExelPrinter();
+
+	public void PrintNBA(ActionEvent e) throws FileNotFoundException {
+
+		String[][] stats = new String[30][21];
+		for (int i = 0; i < 30; i++) {
+			stats[i][0] = name.getCellData(i);
+			stats[i][2] = Double.toString(GP.getCellData(i));
+			stats[i][3] = Double.toString(PTS.getCellData(i));
+			stats[i][4] = Double.toString(FGM.getCellData(i));
+			stats[i][5] = Double.toString(FGA.getCellData(i));
+			stats[i][6] = Double.toString(FGP.getCellData(i));
+			stats[i][7] = Double.toString(TPM.getCellData(i));
+			stats[i][8] = Double.toString(TPA.getCellData(i));
+			stats[i][9] = Double.toString(TPP.getCellData(i));
+			stats[i][10] = Double.toString(FTM.getCellData(i));
+			stats[i][11] = Double.toString(FTA.getCellData(i));
+			stats[i][12] = Double.toString(FTP.getCellData(i));
+			stats[i][13] = Double.toString(OR.getCellData(i));
+			stats[i][14] = Double.toString(DR.getCellData(i));
+			stats[i][15] = Double.toString(REB.getCellData(i));
+			stats[i][16] = Double.toString(AST.getCellData(i));
+			stats[i][17] = Double.toString(STL.getCellData(i));
+			stats[i][18] = Double.toString(BLK.getCellData(i));
+			stats[i][19] = Double.toString(TO.getCellData(i));
+			stats[i][20] = Double.toString(PF.getCellData(i));
+		}
+		ep.printer(stats);
+
+	}
+
+	public void PrintMLB(ActionEvent e) throws FileNotFoundException {
+
+		if (Field.isSelected() == true) {
+			String[][] stats = new String[30][18];
+			for (int i = 0; i < 30; i++) {
+				stats[i][0] = MLBname.getCellData(i);
+				stats[i][2] = Double.toString(MLBGP.getCellData(i));
+				stats[i][3] = Double.toString(AB.getCellData(i));
+				stats[i][4] = Double.toString(R.getCellData(i));
+				stats[i][5] = Double.toString(H.getCellData(i));
+				stats[i][6] = Double.toString(DBL.getCellData(i));
+				stats[i][7] = Double.toString(TRPL.getCellData(i));
+				stats[i][8] = Double.toString(HR.getCellData(i));
+				stats[i][9] = Double.toString(RBI.getCellData(i));
+				stats[i][10] = Double.toString(TB.getCellData(i));
+				stats[i][11] = Double.toString(BB.getCellData(i));
+				stats[i][12] = Double.toString(MLBSO.getCellData(i));
+				stats[i][13] = Double.toString(SB.getCellData(i));
+				stats[i][14] = Double.toString(AVG.getCellData(i));
+				stats[i][15] = Double.toString(OBP.getCellData(i));
+				stats[i][16] = Double.toString(SLG.getCellData(i));
+				stats[i][17] = Double.toString(OPS.getCellData(i));
+			}
+
+		} else {
+			String[][] stats = new String[30][21];
+			for (int i = 0; i < 30; i++) {
+				stats[i][0] = PMLBname.getCellData(i);
+				stats[i][2] = Double.toString(PMLBGP.getCellData(i));
+				stats[i][3] = Double.toString(MLBW.getCellData(i));
+				stats[i][4] = Double.toString(MLBL.getCellData(i));
+				stats[i][5] = Double.toString(ERA.getCellData(i));
+				stats[i][6] = Double.toString(SV.getCellData(i));
+				stats[i][7] = Double.toString(CG.getCellData(i));
+				stats[i][8] = Double.toString(SHO.getCellData(i));
+				stats[i][9] = Double.toString(QS.getCellData(i));
+				stats[i][10] = Double.toString(IP.getCellData(i));
+				stats[i][11] = Double.toString(PMLBH.getCellData(i));
+				stats[i][12] = Double.toString(ER.getCellData(i));
+				stats[i][13] = Double.toString(PMLBHR.getCellData(i));
+				stats[i][14] = Double.toString(PMLBBB.getCellData(i));
+				stats[i][15] = Double.toString(PMLBSO.getCellData(i));
+				stats[i][16] = Double.toString(OBA.getCellData(i));
+				stats[i][17] = Double.toString(WHIP.getCellData(i));
+			}
+			ep.printer(stats);
+
+		}
+
+	}
+
+	public void PrintNHL(ActionEvent e) throws FileNotFoundException {
+
+		if (Field.isSelected() == true) {
+			String[][] stats = new String[30][18];
+			for (int i = 0; i < 30; i++) {
+				stats[i][0] = MLBname.getCellData(i);
+				stats[i][2] = Double.toString(MLBGP.getCellData(i));
+				stats[i][3] = Double.toString(AB.getCellData(i));
+				stats[i][4] = Double.toString(R.getCellData(i));
+				stats[i][5] = Double.toString(H.getCellData(i));
+				stats[i][6] = Double.toString(DBL.getCellData(i));
+				stats[i][7] = Double.toString(TRPL.getCellData(i));
+				stats[i][8] = Double.toString(HR.getCellData(i));
+				stats[i][9] = Double.toString(RBI.getCellData(i));
+				stats[i][10] = Double.toString(TB.getCellData(i));
+				stats[i][11] = Double.toString(BB.getCellData(i));
+				stats[i][12] = Double.toString(MLBSO.getCellData(i));
+				stats[i][13] = Double.toString(SB.getCellData(i));
+				stats[i][14] = Double.toString(AVG.getCellData(i));
+				stats[i][15] = Double.toString(OBP.getCellData(i));
+				stats[i][16] = Double.toString(SLG.getCellData(i));
+				stats[i][17] = Double.toString(OPS.getCellData(i));
+			}
+
+		} else {
+			String[][] stats = new String[30][21];
+			for (int i = 0; i < 30; i++) {
+				stats[i][0] = PMLBname.getCellData(i);
+				stats[i][2] = Double.toString(PMLBGP.getCellData(i));
+				stats[i][3] = Double.toString(MLBW.getCellData(i));
+				stats[i][4] = Double.toString(MLBL.getCellData(i));
+				stats[i][5] = Double.toString(ERA.getCellData(i));
+				stats[i][6] = Double.toString(SV.getCellData(i));
+				stats[i][7] = Double.toString(CG.getCellData(i));
+				stats[i][8] = Double.toString(SHO.getCellData(i));
+				stats[i][9] = Double.toString(QS.getCellData(i));
+				stats[i][10] = Double.toString(IP.getCellData(i));
+				stats[i][11] = Double.toString(PMLBH.getCellData(i));
+				stats[i][12] = Double.toString(ER.getCellData(i));
+				stats[i][13] = Double.toString(PMLBHR.getCellData(i));
+				stats[i][14] = Double.toString(PMLBBB.getCellData(i));
+				stats[i][15] = Double.toString(PMLBSO.getCellData(i));
+				stats[i][16] = Double.toString(OBA.getCellData(i));
+				stats[i][17] = Double.toString(WHIP.getCellData(i));
+			}
+			ep.printer(stats);
+
+		}
+
+	}
+
+	public void PrintNFL(ActionEvent e) throws FileNotFoundException {
+
+		if (DefenseTab.isSelected() == false) {
+			String[][] stats = new String[32][11];
+			for (int i = 0; i < 32; i++) {
+				stats[i][0] = NFLname.getCellData(i);
+				stats[i][2] = Double.toString(NFLGP.getCellData(i));
+				stats[i][3] = Double.toString(TYDS.getCellData(i));
+				stats[i][4] = Double.toString(TYDSPG.getCellData(i));
+				stats[i][5] = Double.toString(PYDS.getCellData(i));
+				stats[i][6] = Double.toString(PYDSPG.getCellData(i));
+				stats[i][7] = Double.toString(RYDS.getCellData(i));
+				stats[i][8] = Double.toString(RYDSPG.getCellData(i));
+				stats[i][9] = Double.toString(NFLPTS.getCellData(i));
+				stats[i][10] = Double.toString(PTSPG.getCellData(i));
+
+			}
+			ep.printer(stats);
+
+		} else {
+			String[][] stats = new String[32][16];
+			for (int i = 0; i < 32; i++) {
+				stats[i][0] = DNFLname.getCellData(i);
+				stats[i][2] = Double.toString(DNFLGP.getCellData(i));
+				stats[i][3] = Double.toString(DTYDS.getCellData(i));
+				stats[i][4] = Double.toString(DTYDSPG.getCellData(i));
+				stats[i][5] = Double.toString(DPYDS.getCellData(i));
+				stats[i][6] = Double.toString(DPYDSPG.getCellData(i));
+				stats[i][7] = Double.toString(DRYDS.getCellData(i));
+				stats[i][8] = Double.toString(DRYDSPG.getCellData(i));
+				stats[i][9] = Double.toString(DNFLPTS.getCellData(i));
+				stats[i][10] = Double.toString(DPTSPG.getCellData(i));
+				ep.printer(stats);
+
+			}
+		}
+	}
 
 	private void initializeNBAData() {
 		NbaWebScraper nbaWebScraper = new NbaWebScraper();
@@ -340,6 +508,7 @@ public class MainController {
 		NHLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 		GNHLname.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 		NHLGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
+		GNHLGP.setCellValueFactory(cellData -> cellData.getValue().getGP().asObject());
 		GFPG.setCellValueFactory(cellData -> cellData.getValue().getGFPG().asObject());
 		A.setCellValueFactory(cellData -> cellData.getValue().getA().asObject());
 		NHLPTS.setCellValueFactory(cellData -> cellData.getValue().getPTS().asObject());
@@ -404,8 +573,8 @@ public class MainController {
 		WHIP.setCellValueFactory(cellData -> cellData.getValue().getWHIP().asObject());
 
 		// Assuming you have a TableColumn named PMLBGP and MLBPitchingTable
-		PitchingTable.getColumns().setAll(PMLBname,PMLBGP, MLBW, MLBL, ERA, SV, CG, SHO, QS, IP, PMLBH, ER, PMLBHR, PMLBBB,
-				PMLBSO, OBA, WHIP);
+		PitchingTable.getColumns().setAll(PMLBname, PMLBGP, MLBW, MLBL, ERA, SV, CG, SHO, QS, IP, PMLBH, ER, PMLBHR,
+				PMLBBB, PMLBSO, OBA, WHIP);
 	}
 
 	private void initializeMLBFieldingStats() {
@@ -438,7 +607,8 @@ public class MainController {
 		SLG.setCellValueFactory(cellData -> cellData.getValue().getSLG().asObject());
 		OPS.setCellValueFactory(cellData -> cellData.getValue().getOPS().asObject());
 
-		FieldTable.getColumns().setAll(MLBname,MLBGP, AB, R, H, DBL, TRPL, HR, RBI, TB, BB, MLBSO, SB, AVG, OBP, SLG, OPS);
+		FieldTable.getColumns().setAll(MLBname, MLBGP, AB, R, H, DBL, TRPL, HR, RBI, TB, BB, MLBSO, SB, AVG, OBP, SLG,
+				OPS);
 	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
