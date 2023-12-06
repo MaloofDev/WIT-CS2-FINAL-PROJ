@@ -128,7 +128,7 @@
                            <top>
                               <HBox maxWidth="1.7976931348623157E308" prefHeight="20.0">
                                  <children>
-                                    <Button fx:id="RefreshNHL" mnemonicParsing="false" prefWidth="1500.0" text="Refresh" />
+                                    <Button fx:id="RefreshNHL" mnemonicParsing="false" onAction="#RefreshNHL" prefWidth="1500.0" text="Refresh" />
                                     <Button fx:id="PrintNHL" mnemonicParsing="false" prefWidth="1500.0" text="Print" />
                                     <ChoiceBox fx:id="PrePostNHL" prefWidth="1500.0" />
                                     <ChoiceBox fx:id="YearNHL" prefWidth="1500.0" />
@@ -148,7 +148,7 @@
                            <top>
                               <HBox prefHeight="21.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Button fx:id="RefreshMLB" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
+                                    <Button fx:id="RefreshMLB" mnemonicParsing="false" onAction="#RefreshMLB" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
                                     <Button fx:id="PrintMLB" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Print" />
                                     <ChoiceBox fx:id="PrePostMLB" prefHeight="25.0" prefWidth="15000.0" />
                                     <ChoiceBox fx:id="YearMLB" prefHeight="25.0" prefWidth="15000.0" />
@@ -269,7 +269,7 @@
                            <top>
                               <HBox prefHeight="22.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Button fx:id="RefreshNBA" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
+                                    <Button fx:id="RefreshNBA" mnemonicParsing="false" onAction="#RefreshNBA" prefHeight="25.0" prefWidth="15000.0" text="Refresh" />
                                     <Button fx:id="PrintNBA" mnemonicParsing="false" prefHeight="25.0" prefWidth="15000.0" text="Print" />
                                     <ChoiceBox fx:id="PrePostNBA" prefHeight="25.0" prefWidth="15000.0" />
                                     <ChoiceBox fx:id="YearNBA" prefHeight="25.0" prefWidth="15000.0" HBox.hgrow="ALWAYS">
@@ -351,7 +351,7 @@
                            <top>
                               <HBox prefHeight="23.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <Button fx:id="RefreshNFL" mnemonicParsing="false" prefHeight="25.0" prefWidth="1500.0" text="Refresh" />
+                                    <Button fx:id="RefreshNFL" mnemonicParsing="false" onAction="#RefreshNFL" prefHeight="25.0" prefWidth="1500.0" text="Refresh" />
                                     <Button fx:id="PrintNFL" mnemonicParsing="false" prefHeight="25.0" prefWidth="1500.0" text="Print" />
                                     <ChoiceBox fx:id="PrePostNFL" prefHeight="25.0" prefWidth="1500.0" />
                                     <ChoiceBox fx:id="YearNFL" prefHeight="25.0" prefWidth="1500.0" />

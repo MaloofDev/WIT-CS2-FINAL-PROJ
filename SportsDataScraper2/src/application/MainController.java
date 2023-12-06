@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -224,6 +225,34 @@ public class MainController {
 
 	@FXML // fx:id="YearNHL"
 	private ChoiceBox<?> YearNHL; // Value injected by FXMLLoader
+	
+	public void RefreshMLB(ActionEvent e) {
+		initializeMLBFieldingStats();
+		initializeMLBPitchingStats();
+		//System.out.print("work");
+	}
+	public void RefreshNFL(ActionEvent e) {
+		initializeNFLDData();
+		initializeNFLOData();
+		//System.out.print("work");
+
+
+	}
+	public void RefreshNHL(ActionEvent e) {
+		initializeNHLData();
+	
+	}
+	public void RefreshNBA(ActionEvent e) {
+		initializeNBAData();
+		
+
+	}
+	
+	public void PrintMLB(ActionEvent e) {
+		
+	}
+	
+
 
 	private void initializeNBAData() {
 		NbaWebScraper nbaWebScraper = new NbaWebScraper();
