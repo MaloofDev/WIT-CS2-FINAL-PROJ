@@ -4,8 +4,11 @@ Professional Sports Data Scraper
 
 
 Devon Lapierre, Tyger Maguire, Kaleb Maloof
+
 COMP1050-07
+
 Professor Gyllinsky
+
 December 7, 2023 
  
 Abstract
