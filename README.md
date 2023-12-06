@@ -10,13 +10,13 @@ COMP1050-07
 Professor Gyllinsky
 
 December 7, 2023 
- 
+
 Abstract
 
 In our project, we decided to web scrape data from team statistics and team standings tables from the ESPN website and place the data we scraped into our own tables, which we were able to display with our GUI. We created classes that helped to scrape the data, place it into arrays, and scrape corresponding team names, putting this data into one large array that could be written into a file or into our GUI. We used an abstract Scraper class with the methods that would then correspond to each method implementation of the scraper class for each sport, as well as a TeamStats class that held variables, a constructor, and getter methods for each variable that were used in each leagues’ Stats classes. Additionally, we used an algorithm to compute the expected win percentage of each team of each league by using scraped values of points for and points against, and putting them into the formula: 
 W/ (W+L) = W% = PF2 / (PA2 + PF2)
 We were then able to write all of our scraped statistics along with our calculated expected win percentage statistic into our GUI using JavaFX and scene builder, creating a strong visual output for our data
- 
+
 Introduction
 
 In our project, our goal was to scrape data from team statistics and team standings pages of the ESPN website for the four major professional sports’ leagues, the NFL, NBA, MLB, and NHL. We wanted to be able to successfully scrape selected data and write it into files of our own, which we could display to the user in a graphical user interface where the user can flip through the different data tables and sort through columns of statistics for each set of data. Additionally, with the help of Professor Barry Husowitz, we were able to implement an algorithm that calculated a prediction for the expected winning percentage of each team in each league based on points scored and points allowed (NFL and NBA), goals for and goals allowed (NHL), or runs scored and runs allowed (MLB). Our project greatly enhanced our ability to web scrape using the properties of the Jsoup library, which allowed us to parse the html of the ESPN website to get the data we required. We used abstract classes to set up data scrapers for each data table we grabbed from and were able to enter all the data we grabbed into files. These files were then used to fill in the different scenes of our GUI, applying the corresponding file to the correct tab of our GUI. We also enhanced our knowledge of using JavaFX to build a complete site with a home page, tabs for each of the leagues and the tables we created for the leagues, and buttons to sort through different columns of the data for each table we provide.
