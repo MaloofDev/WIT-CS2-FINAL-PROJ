@@ -32,7 +32,7 @@ public class Main extends Application implements Initializable {
 			loader.setController(mainController);
 			Parent root= loader.load();			
 			Scene scene = new Scene(root, 500,500);
-			stage.setTitle("Example Using FXML With JavaFX");
+			stage.setTitle("Sports Data Scraper GUI");
 			stage.setScene(scene);
 			stage.show();
 			 
